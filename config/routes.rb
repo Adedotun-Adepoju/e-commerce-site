@@ -6,4 +6,7 @@ Rails.application.routes.draw do
 
   # about 
   get "/about", to: "about#index"
+
+  # sign-in 
+  post "/sign_in", to: "registration#index"
 end
