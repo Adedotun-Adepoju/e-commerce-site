@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get "/about", to: "about#index"
 
   # sign-in 
-  get "/sign_in", to: "registration#login"
-  post "/sign_in", to: "registration#create"
+  get "/sign_in", to: "sessions#new"
+  post "/sign_in", to: "sessions#create"
+
+  # sign-out 
+  delete "/sign_out", to: "sessions#destroy"
 end

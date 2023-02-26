@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+.sign-in-sform{
+    padding: 50px;
+    border: 1px solid red;
+}
+.name{
+    margin: 50px;
+    color: red;
+}

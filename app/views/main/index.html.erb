@@ -1,1 +1,7 @@
-<h1>Welcome to the voice empowered e-commerce site</h1>
+<div class="d-flex align-items-center justify-content-center">
+    <h1>Welcome to the voice empowered e-commerce site</h1>
+
+    <% if @customer %>
+        Logged in as: <%= @customer.email %>
+    <% end %>
+</div>
