@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   get "/about", to: "about#index"
 
   # sign-in 
-  post "/sign_in", to: "registration#index"
+  get "/sign_in", to: "registration#login"
+  post "/sign_in", to: "registration#create"
 end
