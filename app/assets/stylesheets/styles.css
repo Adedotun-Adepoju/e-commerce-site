@@ -62,3 +62,43 @@ body {
 .sign-in-form{
     padding: 50px 90px;
 }
+/*------------Home-page ---------------*/
+.main-container{
+    margin: 40px 150px;
+}
+.categories-container{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.single-category-container{
+    margin-bottom: 40px;
+}
+a > h3{
+    color: grey;
+}
+.image-container{
+    margin-bottom: 15px;
+}
+.category-image{
+    width: 400px;
+    height: 250px;
+}
+.category-name{
+    font-size:20px;
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.category-description{
+    color: #000;
+}
+
+.fix{
+    position: fixed;
+    bottom: 0px;
+    left: 50%;
+}
