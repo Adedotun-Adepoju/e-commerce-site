@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   
   # category routes
   post '/category/add', to: 'category#create'                   # Create category
-  get  '/category/:category_id', to "category#fetch_category"   # fetch one category
-  get  '/categories', to "category#fetch_all"                   # fetch all categories
+  get  '/category/:category_id', to: "category#fetch_category"   # fetch one category
+  get  '/categories', to: "category#fetch_all"                   # fetch all categories
 
   # Item routes
   get '/items', to: 'item#index'                 # fetch all items
