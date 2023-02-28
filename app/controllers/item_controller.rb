@@ -1,6 +1,6 @@
 class ItemController < ApplicationController
   skip_before_action :verify_authenticity_token
-  def index
+  def fetch_all
     puts "not here"
     # @items = Products.all
   end
