@@ -7,11 +7,19 @@ class CategoryController < ApplicationController
   end
 
   def fetch_category 
-    puts params[:category_id]
+    id = params[:category_id]
+    @category = Category.find(id)
+
+    puts @category.slug
   end 
 
   def fetch_all 
-    puts "fetch_all"
+    puts "here"
+    @categories = Category.all 
+    
+    for category in @categories
+      puts category.slug
+    end
   end
 
   private 
