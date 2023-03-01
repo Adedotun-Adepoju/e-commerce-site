@@ -3,18 +3,22 @@ class CategoryController < ApplicationController
   def create
     puts "create"
 
+    # save all categories to the db
     @categories = Category.create(category_params)
   end
 
   def fetch_category 
     id = params[:category_id]
+
+    # find the category with the specified id
     @category = Category.find(id)
 
     puts @category.slug
   end 
 
   def fetch_all 
-    puts "here"
+    
+    # fetch all categorie
     @categories = Category.all 
     
     for category in @categories
