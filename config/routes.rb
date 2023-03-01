@@ -1,6 +1,4 @@
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-<<<<<<< HEAD
-
 Rails.application.routes.draw do
   # Root
   root to: "main#index"
@@ -14,8 +12,6 @@ Rails.application.routes.draw do
 
   # sign-out 
   delete "/sign_out", to: "sessions#destroy"
-=======
-Rails.application.routes.draw do
   
   # category routes
   post '/category/add', to: 'category#create'                   # Create category
@@ -27,5 +23,4 @@ Rails.application.routes.draw do
   get '/item/:item_id', to: "item#fetch_item"   # Fetch one item
   post "/item", to: "item#create"                # Create new item
 
->>>>>>> staging
 end
