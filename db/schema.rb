@@ -17,14 +17,17 @@ ActiveRecord::Schema.define(version: 2023_02_25_144525) do
 
   create_table "carts", force: :cascade do |t|
     t.bigint "customer_id", null: false
+    t.text "sub_total"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_carts_on_customer_id"
   end
 
   create_table "categories", force: :cascade do |t|
-    t.text "category_name"
+    t.string "category_name"
+    t.text "slug"
     t.text "description"
+    t.text "img_src"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -38,11 +41,11 @@ ActiveRecord::Schema.define(version: 2023_02_25_144525) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.text "item_name"
+    t.string "item_name"
     t.integer "stock_number"
-    t.boolean "in_stock"
     t.decimal "price"
     t.text "description"
+    t.text "img_src"
     t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
