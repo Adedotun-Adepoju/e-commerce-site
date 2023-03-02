@@ -16,9 +16,7 @@ class ItemController < ApplicationController
     for item in item_params
       category_slug = item[:category]
       @category = Category.find_by(slug: category_slug)
-      puts @category
       item.delete(:category)
-      puts item
       @category.items.create(item)
     end
   end
