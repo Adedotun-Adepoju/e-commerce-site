@@ -12,9 +12,11 @@ class SessionsController < ApplicationController
             session[:customer_id] = existing_customer.id
             redirect_to root_path
         else  
-            customer = Customer.new(customer_params)
-            customer.save 
-            session[:customer_id] = customer.id 
+            @customer = Customer.new(customer_params)
+            customer = @customer.save 
+            session[:customer_id] = @customer.id 
+            @customer.build_cart()
+            @customer.cart.save
             redirect_to about_path
         end
     end
