@@ -7,7 +7,9 @@ class ItemController < ApplicationController
 
   def fetch_item
     puts params[:item_id]
-    # @item = Items.find(params[:item_id])
+    @item = Item.find(params[:item_id])
+
+    puts @item["item_name"]
   end
 
   def create
@@ -18,6 +20,20 @@ class ItemController < ApplicationController
       @category = Category.find_by(slug: category_slug)
       item.delete(:category)
       @category.items.create(item)
+    end
+  end
+
+  def fetch_all 
+    @items = Item.all
+  end
+
+  def fetch_by_category
+    category_id = params[:category_id]
+    @category = Category.find(category_id)
+    @items = @category.items.all
+
+    for item in @items 
+      puts item.item_name
     end
   end
 

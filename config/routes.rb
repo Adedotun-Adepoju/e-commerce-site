@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   # Item routes
   get '/items', to: 'item#index'                 # fetch all items
   get '/item/:item_id', to: "item#fetch_item"   # Fetch one item
-  post "/item", to: "item#create"                # Create new item
+  post "/item", to: "item#create"      
+  get '/items/:category_id', to: "item#fetch_by_category"          # Create new item
 
 end
