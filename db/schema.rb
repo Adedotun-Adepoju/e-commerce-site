@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2023_02_25_144525) do
 
   create_table "categories", force: :cascade do |t|
     t.string "category_name"
-    t.text "slug"
+    t.string "slug"
     t.text "description"
     t.text "img_src"
     t.datetime "created_at", precision: 6, null: false

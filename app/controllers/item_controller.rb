@@ -11,14 +11,26 @@ class ItemController < ApplicationController
   end
 
   def create
-    # item = Item.new(params[:item])
+    puts "here"
     # @category = Categories.find_by(slug: params[:item])
-    puts params
-    # @item
+    for item in item_params
+      category_slug = item[:category]
+      @category = Category.find_by(slug: category_slug)
+      puts @category
+      item.delete(:category)
+      puts item
+      @category.items.create(item)
+    end
   end
 
   private
   def item_params
-    params.permit(:item_name, :stock_number, :description, :price, :category)
+    params.permit(item: [
+      :item_name, 
+      :stock_number, 
+      :description, 
+      :price, 
+      :img_src,
+      :category]).require(:item)
   end
 end
