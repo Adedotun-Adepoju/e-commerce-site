@@ -1,7 +1,7 @@
 class ItemController < ApplicationController
   skip_before_action :verify_authenticity_token
   def fetch_all
-    @items = Products.all
+    @items = Item.all
   end
 
   def fetch_item
