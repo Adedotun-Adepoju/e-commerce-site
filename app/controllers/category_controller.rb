@@ -17,7 +17,6 @@ class CategoryController < ApplicationController
   end 
 
   def fetch_all 
-    
     # fetch all categorie
     @categories = Category.all 
     
