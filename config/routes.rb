@@ -19,9 +19,9 @@ Rails.application.routes.draw do
   get  '/categories', to: "category#fetch_all"                   # fetch all categories
 
   # Item routes
-  get '/items', to: 'item#index'                 # fetch all items
-  get '/item/:item_id', to: "item#fetch_item"   # Fetch one item
-  post "/item", to: "item#create"      
-  get '/items/:category_id', to: "item#fetch_by_category"          # Create new item
-
+  get '/items', to: 'item#index'                                  # fetch all items
+  get '/item/:item_id', to: "item#fetch_item"                     # Fetch one item
+  post "/item", to: "item#create"                                 # Create new item
+  get '/items/:category_id', to: "item#fetch_by_category"          # fetch items by category
+  get '/items/:cart_id', to: "item#fetch_by_carts"
 end
