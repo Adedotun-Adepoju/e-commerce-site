@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get '/items', to: 'item#index'                                  # fetch all items
   get '/item/:item_id', to: "item#fetch_item"                     # Fetch one item
   post "/item", to: "item#create"                                 # Create new item
-  get '/items/:category_id', to: "item#fetch_by_category"          # fetch items by category
-  get '/items/:cart_id', to: "item#fetch_by_carts"
+  get '/item/category/:category_id', to: "item#fetch_by_category"          # fetch items by category
+  get '/item/cart/:cart_id', to: "item#fetch_by_carts"                # fetch items by cart
+  post 'item/cart/:cart_id', to: "item#add_item_to_cart"                               # Add item to a cart
 end
