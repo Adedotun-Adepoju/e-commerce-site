@@ -1,6 +1,36 @@
 .main-container{
 	margin: 40px 150px;
-	background-color: aqua;
-    width: 50px;
-    height: 70px;
+
+	.category-header{
+		text-align: center;
+	}
+	
+	.item-container{
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		margin-top: 50px;
+
+		.single-item-container{
+			margin-top: 20px;
+			.image-container{
+
+				.item-image{
+					width: 400px;
+					height: 250px;
+				}
+			}
+
+			.item-name{
+				margin-top: 10px;
+				font-size:20px;
+				text-decoration: none;			
+			}
+
+			.item-price{
+				color: gray;
+				font-size: 25px;
+			}
+		}
+	}
 }

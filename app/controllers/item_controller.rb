@@ -21,10 +21,12 @@ class ItemController < ApplicationController
     @items = Item.all
   end
 
-  def fetch_by_category
+  def show_category_items
     category_id = params[:category_id]
     @category = Category.find(category_id)
     @items = @category.items.all
+
+    render "items_category"
 
     for item in @items 
       puts item.item_name
