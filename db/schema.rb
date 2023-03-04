@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2023_02_25_144525) do
     t.integer "stock_number"
     t.decimal "price"
     t.text "description"
-    t.text "img_src"
+    t.text "image_src"
     t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

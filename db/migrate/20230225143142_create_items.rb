@@ -5,7 +5,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.integer :stock_number
       t.decimal :price
       t.text :description
-      t.text :img_src
+      t.text :image_src
       t.references :category, null: false, foreign_key: true
 
       t.timestamps
