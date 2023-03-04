@@ -1,14 +1,14 @@
 <% content_for :head do %>
-  <%= stylesheet_link_tag 'show' %>
+  <%= stylesheet_link_tag 'items_category' %>
 <% end %>
 
 <div class="main-container">
-		<h3 class="category-header"> Gaming </h3>
+		<h3 class="category-header"><%= @category.category_name %></h3>
     <div class="item-container">
 			<% @items.each do |item| %>
 				<div class="single-item-container">
 					<div class="image-container">
-							<%= image_tag "gaming.jpg", class:"item-image" %>
+							<%= image_tag item.image_src, class:"item-image" %>
 					</div>
 					<p class="item-name"><%= item.item_name %></p>
 					<p class="item-price">$<%= item.price %></p>

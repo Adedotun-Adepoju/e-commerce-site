@@ -4,10 +4,14 @@
 	.category-header{
 		text-align: center;
 	}
+	.items{
+		background-color: red;
+	}
 	
 	.item-container{
 		display: flex;
-		justify-content: space-between;
+		flex-direction: row;
+		gap: 30px;
 		flex-wrap: wrap;
 		margin-top: 50px;
 
@@ -16,8 +20,8 @@
 			.image-container{
 
 				.item-image{
-					width: 400px;
-					height: 250px;
+					width: 350px;
+					height: 350px;
 				}
 			}
 

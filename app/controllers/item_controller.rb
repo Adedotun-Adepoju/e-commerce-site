@@ -56,7 +56,7 @@ class ItemController < ApplicationController
       :stock_number, 
       :description, 
       :price, 
-      :img_src,
+      :image_src,
       :category]).require(:item)
   end
 
