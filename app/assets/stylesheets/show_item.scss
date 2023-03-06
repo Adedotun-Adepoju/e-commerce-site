@@ -1,0 +1,38 @@
+.main-container{
+    margin-top: 40px;
+    padding: 0 400px;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    gap: 30px;
+
+    .description-container{
+        padding-top: 70px;
+        box-sizing: border-box;
+        margin-left: 40px;
+        
+        .item-name{
+            text-transform: capitalize;
+        }
+    
+        .item-price{
+            color: grey;
+            margin-top: 40px;
+        }
+
+				.cart-container{
+					margin-top: 70px;
+					span{
+						background-color: darkgreen;
+						padding: 20px 40px 15px 40px;
+						h2{
+							color: white;
+							text-align: center;
+							text-transform: uppercase;
+							font-size: 14px;
+						}
+					}
+				}
+}
+
+}

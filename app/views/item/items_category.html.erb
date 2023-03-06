@@ -7,7 +7,7 @@
     <div class="item-container">
 			<% @items.each do |item| %>
 				<div class="single-item-container">
-					<%= link_to root_path(:item_id => item.id) do %>
+					<%= link_to show_item_path(:item_id => item.id) do %>
 						<div class="image-container">
 								<%= image_tag item.image_src, class:"item-image" %>
 						</div>

@@ -1,0 +1,18 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'show_item' %>
+<% end %>
+
+<div class="main-container">
+	<div class="image-container">
+		<%= image_tag @item.image_src, class:"item-image" %>
+	</div>
+	<div class="description-container">
+		<h3 class="item-name"><%= @item.item_name %>
+		<p class="item-price">$<%= @item.price %></p>
+		<div class="cart-container">
+			<span>
+				<h2>Add to cart</h2>
+			</span>
+		</div>
+	</div>
+</div>

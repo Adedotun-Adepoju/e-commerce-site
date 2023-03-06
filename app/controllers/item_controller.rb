@@ -33,6 +33,13 @@ class ItemController < ApplicationController
     end
   end
 
+  def show_item 
+    item_id = params[:item_id]
+    @item = Item.find(item_id)
+
+    render "show_item"
+  end
+
   def fetch_by_carts
     cart_id = params[:cart_id]
     @cart = Cart.find(cart_id)
