@@ -11,16 +11,16 @@
 	.item-container{
 		display: flex;
 		flex-direction: row;
-		gap: 30px;
+		justify-content: space-between;
 		flex-wrap: wrap;
 		margin-top: 50px;
 
 		.single-item-container{
-			margin-top: 20px;
+			margin-top: 50px;
 			.image-container{
 
 				.item-image{
-					width: 350px;
+					width: 400px;
 					height: 350px;
 				}
 			}

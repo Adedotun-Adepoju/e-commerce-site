@@ -9,7 +9,7 @@
 	<div class="categories-container">
 		<% @categories.each do |category| %>
 			<div class="single-category-container">
-				<a href="">
+				<%= link_to category_items_path(:category_id => category.id) do %>
 					<div class="image-container">
 						<%= image_tag category.img_src.to_s, class: "category-image" %>
 					</div>
@@ -17,7 +17,7 @@
 						<span class="category-name"><%= category.category_name %></span>
 					</h3>
 					<p class="category-description">Gaming hardware and accessories</p>
-				</a>
+				<% end %>
 			</div>
 		<% end %>
 	</div>
