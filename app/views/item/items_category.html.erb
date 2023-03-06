@@ -7,11 +7,13 @@
     <div class="item-container">
 			<% @items.each do |item| %>
 				<div class="single-item-container">
-					<div class="image-container">
-							<%= image_tag item.image_src, class:"item-image" %>
-					</div>
-					<p class="item-name"><%= item.item_name %></p>
-					<p class="item-price">$<%= item.price %></p>
+					<%= link_to root_path(:item_id => item.id) do %>
+						<div class="image-container">
+								<%= image_tag item.image_src, class:"item-image" %>
+						</div>
+						<p class="item-name"><%= item.item_name %></p>
+						<p class="item-price">$<%= item.price %></p>
+					<% end %>
 				</div>
 			<% end %>
     </div>
