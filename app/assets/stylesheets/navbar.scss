@@ -2,8 +2,12 @@ body{
     background-color: #f8f9fa;
 }
 
-.top-banner{
+.top-container{
     width: 100%;
+}
+
+.top-banner{
+    margin: 0 auto;
     background-color: #000;
     height: 100px;
     text-align: center;
@@ -28,6 +32,7 @@ body{
 }
 .nav-first-section{
     width: 480px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-around;
 }
