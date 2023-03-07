@@ -4,7 +4,8 @@
 	.categories-container{
 		margin-top: 50px;
 		display: flex;
-		justify-content: space-between;
+		padding: 5px 5%;
+		gap: 5%;
 		flex-wrap: wrap;
 
 		.single-category-container{
