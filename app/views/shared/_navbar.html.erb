@@ -20,8 +20,8 @@
       </div>
 
       <div class="search-bar">
-        <form id="search-products">
-          <input class="search" type="text" placeholder="Search products"/>
+        <form id="search-products" action='/search/item'>
+          <input class="search" name="key" type="text" placeholder="Search products"/>
         </form>
         <%= image_tag "voice.png", class: "voice-image" %>
       </div>

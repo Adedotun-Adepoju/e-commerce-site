@@ -56,6 +56,12 @@ class ItemController < ApplicationController
     @cart.items_by_carts.create(cart_item)
   end
 
+  def search 
+    puts "here"
+    key = "%#{params[:key]}%"
+    @items = Item.where("item_name LIKE ?", key)
+  end
+
   private
   def item_params
     params.permit(item: [
