@@ -1,4 +1,19 @@
-console.log("nav")
-const searchDocument = document.querySelector('.voice-image')
+const voiceSearch = document.querySelector('.voice-image')
 
-console.log("here",searchDocument)
+voiceSearch.addEventListener('click', (e)=>{
+    console.log(e.target)
+})
+
+const searchForm = document.forms["search-products"]
+
+searchForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const value = searchForm.querySelector('input[type="text"]').value 
+    console.log(value)
+})
+
+function search(){
+    const value = searchForm.querySelector('input[type="text"]').value 
+    console.log(value)   
+}
