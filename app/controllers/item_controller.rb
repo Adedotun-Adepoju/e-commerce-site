@@ -58,6 +58,7 @@ class ItemController < ApplicationController
 
   def search 
     puts "here"
+    @key = params[:key]
     key = "%#{params[:key]}%"
     @items = Item.where("item_name LIKE ?", key)
   end

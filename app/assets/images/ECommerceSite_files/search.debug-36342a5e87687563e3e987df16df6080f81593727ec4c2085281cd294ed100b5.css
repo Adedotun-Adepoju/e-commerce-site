@@ -1,0 +1,32 @@
+/* line 1, app/assets/stylesheets/search.scss */
+.main-container {
+  margin: 5% 5% 0 15%;
+}
+
+/* line 4, app/assets/stylesheets/search.scss */
+.main-container h3 {
+  text-transform: uppercase;
+  margin-bottom: 2.5%;
+}
+
+/* line 9, app/assets/stylesheets/search.scss */
+.main-container .product-container {
+  display: flex;
+  margin-bottom: 2%;
+  border: 1px solid red;
+  gap: 10px;
+}
+
+/* line 15, app/assets/stylesheets/search.scss */
+.main-container .product-container .product-image {
+  width: 45%;
+  height: 45%;
+  border: 1px solid blue;
+}
+
+/* line 23, app/assets/stylesheets/search.scss */
+.main-container .product-description p {
+  text-transform: capitalize;
+}
+
+/*# sourceMappingURL=search.css-b6ebdb1aed05ba2e4618c8bb265e2c8a55ed93464e08b053f5bec5869fe4c597.map */

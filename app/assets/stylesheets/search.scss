@@ -1,0 +1,53 @@
+.search-main-container{
+	margin: 2% 15% 0 15%;
+	padding-left: 10%;
+
+	h3{
+		margin: 0 auto 2.5% auto;
+		text-align: center;
+		font-size: 16px;
+		line-height: 32px;
+	}
+
+	.search-key{
+		font-size: 22px;
+		text-transform: capitalize;
+		font-weight: bold;
+	}
+
+	.product-container{
+		display: flex;
+		margin-bottom: 2%;
+		gap: 3%;
+		border: 1px solid grey;
+		border-radius: 2px;
+		
+		.product-image-container{
+			width: 25%;
+			height: 25%;
+
+			.product-image{
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+
+	.product-description{
+		margin-top: 3%;
+		.name{
+			text-transform: capitalize;
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.description{
+			text-transform: capitalize;
+			font-size: 22px;
+			color: grey;
+		}
+		.price{
+			font-size: 22px;
+		}
+	}
+
+}
