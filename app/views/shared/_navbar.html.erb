@@ -20,9 +20,7 @@
       </div>
 
       <div class="search-bar">
-        <form id="search-form" method="get" action="#" onsubmit="searc">
-          <input class="search" type="text" placeholder="Search products">
-        </form>
+        <input id="search" type="text" placeholder="Search products"/>
         <%= image_tag "voice.png", class: "voice-image" %>
       </div>
 
@@ -49,3 +47,4 @@
     </div>
   </div>
 </nav>
+<%= javascript_pack_tag 'navbar' %>
