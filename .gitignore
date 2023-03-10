@@ -42,3 +42,4 @@ yarn-debug.log*
 
 # Environment variables, never commit this file
 /config/application.yml
+/config/credentials/*
