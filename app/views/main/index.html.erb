@@ -1,0 +1,24 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'index' %>
+<% end %>
+
+<div class="main-container">
+  <div class="Header">
+		<h3>Categories</h3>
+	</div>
+	<div class="categories-container">
+		<% @categories.each do |category| %>
+			<div class="single-category-container">
+				<%= link_to category_items_path(:category_id => category.id) do %>
+					<div class="image-container">
+						<%= image_tag category.img_src.to_s, class: "category-image" %>
+					</div>
+					<h3>
+						<span class="category-name"><%= category.category_name %></span>
+					</h3>
+					<p class="category-description">Gaming hardware and accessories</p>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+</div>

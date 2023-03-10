@@ -1,0 +1,20 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'items_category' %>
+<% end %>
+
+<div class="main-container">
+		<h3 class="category-header"><%= @category.category_name %></h3>
+    <div class="item-container">
+			<% @items.each do |item| %>
+				<div class="single-item-container">
+					<%= link_to show_item_path(:item_id => item.id) do %>
+						<div class="image-container">
+								<%= image_tag item.image_src, class:"item-image" %>
+						</div>
+						<p class="item-name"><%= item.item_name %></p>
+						<p class="item-price">$<%= item.price %></p>
+					<% end %>
+				</div>
+			<% end %>
+    </div>
+</div>

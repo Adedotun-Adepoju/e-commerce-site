@@ -1,0 +1,43 @@
+.main-container{
+	margin: 40px 150px;
+
+	.categories-container{
+		margin-top: 50px;
+		display: flex;
+		padding: 5px 5%;
+		gap: 5%;
+		flex-wrap: wrap;
+
+		.single-category-container{
+			margin-bottom: 40px;
+
+			a{
+				text-decoration: none;
+				color: inherit;
+			}
+
+			.image-container{
+				margin-bottom: 15px;
+
+				.category-image{
+					width: 400px;
+					height: 250px;
+				}
+			}
+
+			h3{
+				color: grey;
+
+				.category-name{
+					font-size:20px;
+					text-decoration: none;
+				}
+			}
+
+			.category-description{
+				color: #000;
+		}
+
+		}
+	}
+}

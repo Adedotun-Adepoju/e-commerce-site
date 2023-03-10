@@ -1,0 +1,137 @@
+body{
+    background-color: #f8f9fa;
+}
+
+.top-banner{
+    // margin: 0 auto;
+    background-color: #000;
+    height: 50%;
+    text-align: center;
+    margin-bottom: 1%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.mic-image{
+    width: 60px;
+    height: 60px;
+    margin-top: 0.1%;
+    align-items: center;
+}
+.banner-text{
+    color: #fff;
+    display: inline;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.sub-banner{
+    margin: 0 150px;
+    padding: 0px;
+    box-sizing: border-box;
+    height: 50px;
+}
+
+.nav-overall-container{
+    margin: 0 5%;
+    display: flex;
+    // justify-content: space-between;
+    gap: 8%;
+}
+.nav-first-section{
+    // width: 480px;
+    // margin: 0 auto;
+    // display: flex;
+    // justify-content: space-between;
+    // border: 1px solid red;
+
+    .nav-item{
+        padding-top: 20px;
+    }
+}
+
+.search-bar{
+    display: flex;
+    justify-content: center;
+    width: 60%;
+}
+#search-products{
+    width: 96%;
+}
+
+.search{
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 18px;
+    display: inline;
+    margin-top: 15px;
+}
+
+.voice-image{
+    display: inline;
+    width: 49px;
+    height: 50px;
+    cursor: pointer;
+    margin-left: -60px;
+    margin-top: 20px;
+}
+
+.right-nav-container{
+    display: flex;
+    justify-content: space-around;
+    width: 500px;
+    margin-top: 10px;
+
+    .right-nav-item{
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .nav-item{
+        padding-top: 15px;
+    }
+
+    .name{
+        margin-right: 40px;
+        margin-top: 80px;
+        font-size: large;
+    }
+
+    .cart-container{
+        display: flex;
+        margin-top: -7px;
+
+        .cart-image{
+            height: 24px;
+            width: 24px;
+            margin-top: 8px;
+        }
+    }
+
+    a{
+        text-decoration: none;
+        color: #000;
+    }
+}
+
+.speech-active{
+    background-color: #fff;
+    width: 100%;
+    padding: 0.5% 0 0.5% 20%;
+    box-sizing: border-box;
+    display: flex;
+    gap: 20%;
+    margin-top: -0.8%;
+    .text{
+        text-align: center;
+        color: black;
+        margin-top: 2.55%;
+    }
+    img{
+        display: inline;
+        width: 10%;
+        height: 5%; 
+        cursor: pointer;      
+    }
+}
+

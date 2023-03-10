@@ -1,0 +1,24 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'search' %>
+<% end %>
+
+<div class="search-main-container">
+	<h3>Your search results for: 
+		<br/> 
+		<span class="search-key">"<%= @key %>"</span>
+	</h3>
+	<div class="products-container">
+		<% @items.each do |item| %>
+			<div class="product-container">
+				<div class="product-image-container">
+					<%= image_tag item.image_src, class:"product-image" %>
+				</div>
+				<div class="product-description">
+					<p class="name"><%= item.item_name %></p>
+					<p class="description"><%= item.description %></p>
+					<p class="price">$<%= item.price %></p>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
