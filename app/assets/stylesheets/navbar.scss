@@ -114,4 +114,24 @@ body{
     }
 }
 
+.speech-active{
+    background-color: #fff;
+    width: 100%;
+    padding: 0.5% 0 0.5% 20%;
+    box-sizing: border-box;
+    display: flex;
+    gap: 20%;
+    margin-top: -0.8%;
+    .text{
+        text-align: center;
+        color: black;
+        margin-top: 2.55%;
+    }
+    img{
+        display: inline;
+        width: 10%;
+        height: 5%; 
+        cursor: pointer;      
+    }
+}
 
