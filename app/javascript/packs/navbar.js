@@ -19,33 +19,51 @@
 // }
 
 const recordButton = document.getElementById('record-button');
-let recording = false
+let recording = false;
+let mediaRecorder;
+let chunks = [];
 
-recordButton.addEventListener('click', (e) => {
-    recording = true
-    const searchBar = e.target.parentElement
-    const wrapper = e.target.closest(".sub-banner");
-    const nav = wrapper.closest("nav")
+navigator.mediaDevices.getDisplayMedia({ audio: true })
+	.then(stream => {
+		mediaRecorder = new MediaRecorder(stream);
+
+    recordButton.addEventListener('click', (e) => {
+        mediaRecorder.start();
+        const wrapper = e.target.closest(".sub-banner");
+        const nav = wrapper.closest("nav")
     
-    nav.removeChild(wrapper)
-    let speechNotification = document.createElement('div');
-    speechNotification.classList.add('speech-active')
-
-    let header = document.createElement("h2");
-    let headerText = document.createTextNode("Listening...")
-    header.classList.add('text')
-    header.append(headerText)
-
-    let img = document.createElement("img");
-    img.setAttribute('id', "stop-recording")
-    img.src = "https://icon-library.com/images/google-voice-search-icon/google-voice-search-icon-8.jpg"
+        nav.removeChild(wrapper)
+        let speechNotification = document.createElement('div');
+        speechNotification.classList.add('speech-active')
     
-    speechNotification.append(header, img);
-    nav.append(speechNotification);
-
-    img.addEventListener('click', (e) => {
-        recording = false;
-        nav.removeChild(speechNotification);
-        nav.append(wrapper);
+        let header = document.createElement("h2");
+        let headerText = document.createTextNode("Listening...")
+        header.classList.add('text')
+        header.append(headerText)
+    
+        let img = document.createElement("img");
+        img.setAttribute('id', "stop-recording")
+        img.src = "https://icon-library.com/images/google-voice-search-icon/google-voice-search-icon-8.jpg"
+    
+        speechNotification.append(header, img);
+        nav.append(speechNotification);
+    
+        img.addEventListener('click', (e) => {
+            mediaRecorder.stop();
+            nav.removeChild(speechNotification);
+            nav.append(wrapper);
+        });
     });
-});
+
+		mediaRecorder.addEventListener('dataavailable', event => {
+			chunks.push(event.data);
+		});
+
+		mediaRecorder.addEventListener('stop', () => {
+			const audioBlob = new Blob(chunks, { type: 'audio/mp3' });
+			const audioUrl = URL.createObjectURL(audioBlob);
+			audioPlayer.src = audioUrl;
+			chunks = [];
+		})
+	})
+	.catch(error => console.error(error));
