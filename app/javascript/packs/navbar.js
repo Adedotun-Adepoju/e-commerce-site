@@ -19,8 +19,10 @@
 // }
 
 const recordButton = document.getElementById('record-button');
+let recording = false
 
 recordButton.addEventListener('click', (e) => {
+    recording = true
     const searchBar = e.target.parentElement
     const wrapper = e.target.closest(".sub-banner");
     const nav = wrapper.closest("nav")
@@ -35,9 +37,15 @@ recordButton.addEventListener('click', (e) => {
     header.append(headerText)
 
     let img = document.createElement("img");
+    img.setAttribute('id', "stop-recording")
     img.src = "https://icon-library.com/images/google-voice-search-icon/google-voice-search-icon-8.jpg"
     
     speechNotification.append(header, img);
     nav.append(speechNotification);
-    console.log(nav)
-})
+
+    img.addEventListener('click', (e) => {
+        recording = false;
+        nav.removeChild(speechNotification);
+        nav.append(wrapper);
+    });
+});
