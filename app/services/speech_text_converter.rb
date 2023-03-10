@@ -11,12 +11,13 @@ class SpeechTextConverter
     end
 
     def call
-        upload_to_gcs(@file)
+        file_url = upload_to_gcs(@file)
+        puts "here #{file_url}"
     end
 
     private 
 
-    def upload_to_gcs(audio)
+    def upload_to_gcs(audio_file)
         project_id = ENV["PROJECT_ID"]
         credentials = ENV["GCS_CREDENTIALS"]
         bucket = ENV["GCS_BUCKET_NAME"]
@@ -30,7 +31,10 @@ class SpeechTextConverter
         object_name = "audio/#{SecureRandom.uuid}.mp3"
 
         # upload the file to the bucket
-        bucket = storage.bucket(bucket)
-        bucket.create_file(audio_file.tempfile, object_name)
+        bucket = storage.bucket bucket, skip_lookup: true
+        file = bucket.create_file(audio_file.tempfile, object_name)
+        return file.public_url
     end
+
+    def save_reference(object_name, url) end
 end

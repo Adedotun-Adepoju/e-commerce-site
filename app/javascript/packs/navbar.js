@@ -23,7 +23,7 @@ let recording = false;
 let mediaRecorder;
 let chunks = [];
 
-navigator.mediaDevices.getDisplayMedia({ audio: true })
+navigator.mediaDevices.getUserMedia({ audio: true })
 	.then(stream => {
 		mediaRecorder = new MediaRecorder(stream);
 
@@ -62,7 +62,21 @@ navigator.mediaDevices.getDisplayMedia({ audio: true })
 		mediaRecorder.addEventListener('stop', () => {
 			const audioBlob = new Blob(chunks, { type: 'audio/mp3' });
 			const audioUrl = URL.createObjectURL(audioBlob);
-			audioPlayer.src = audioUrl;
+			const formData = new FormData();
+			formData.append('audio_file', audioBlob);
+
+			fetch('/audio/upload', {
+				method: 'POST',
+				body: formData
+			})
+			.then(response => {
+				if (response.ok){
+					console.log('Audio file uploaded successfully')
+				} else {
+					console.log("Error uploading file:", response.statusText);
+				}
+			})
+			.catch(error => console.error(error));
 			chunks = [];
 		})
 	})
