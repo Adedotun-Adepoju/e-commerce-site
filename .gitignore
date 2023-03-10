@@ -39,3 +39,6 @@
 yarn-debug.log*
 .yarn-integrity
 /app/assets/images/ECommerceSite_files
+
+# Environment variables, never commit this file
+.env
