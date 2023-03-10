@@ -28,4 +28,6 @@ Rails.application.routes.draw do
   post 'item/cart/:cart_id', to: "item#add_item_to_cart"                               # Add item to a cart
 
   get 'items/test', to: "main#show"
+
+  post 'audio/upload', to: "audio#upload_audio"
 end
