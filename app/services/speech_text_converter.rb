@@ -44,18 +44,14 @@ class SpeechTextConverter
 
         speech = Google::Cloud::Speech.speech
         audio_uri = "gs://#{bucket}/#{object_name}"
-        puts audio_uri
-        config = {
-            language_code: "en-us",
-            encoding: :FLAC,
-        }
-        audio = { 
-            uri: audio_uri 
-        }
+
         request = ::Google::Cloud::Speech::V1::RecognizeRequest.new(
             config: {
                 language_code: "en-us",
-                encoding: :LINEAR16,
+                encoding: :WEBM_OPUS,
+                sample_rate_hertz: 48000, 
+                model: "command_and_search",
+                use_enhanced: true
             }, 
             audio: {
                 uri: audio_uri                 
@@ -64,7 +60,7 @@ class SpeechTextConverter
         response = speech.recognize request
         puts "res #{response}"
 
-        transcript = "a"
+        transcript = ""
         response.results.each do |result|
             puts result
             transcript += result.alternatives[0].transcript
