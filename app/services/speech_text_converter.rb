@@ -1,6 +1,7 @@
 require "google/cloud/storage"
 require "google/cloud/speech/v2"
 require "google/cloud/speech"
+require 'stanford-core-nlp'
 
 class SpeechTextConverter
     def initialize(file)
@@ -13,7 +14,8 @@ class SpeechTextConverter
 
     def call
         object_name = upload_to_gcs(@file)
-        convert_to_text(object_name)
+        transcript = convert_to_text(object_name)
+        tokenize(transcript)
     end
 
     private 
@@ -58,7 +60,6 @@ class SpeechTextConverter
             })
         # response = speech.recognize config:config, audio: audio
         response = speech.recognize request
-        puts "res #{response}"
 
         transcript = ""
         response.results.each do |result|
@@ -66,12 +67,10 @@ class SpeechTextConverter
             transcript += result.alternatives[0].transcript
         end 
 
-        puts "here"
-
-        puts "transcript, #{transcript}"
+        return transcript
     end
     
-    def save_reference(object_name, url) 
-    
+    def tokenization(transcript) 
+        
     end
 end
