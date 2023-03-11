@@ -29,7 +29,7 @@ class SpeechTextConverter
             credentials: credentials
         )
         # Set the name of the object in ht ebucket
-        object_name = "audio/#{SecureRandom.uuid}.mp3"
+        object_name = "audio/#{SecureRandom.uuid}.linear16"
 
         # upload the file to the bucket
         bucket = storage.bucket bucket, skip_lookup: true
@@ -45,17 +45,21 @@ class SpeechTextConverter
         speech = Google::Cloud::Speech.speech
         audio_uri = "gs://#{bucket}/#{object_name}"
         puts audio_uri
-        config = {
-            language_code: "en-us",
-            encoding: :FLAC,
-        }
-        audio = { 
-            uri: audio_uri 
-        }
+        # config = {
+        #     language_code: "en-us",
+        #     encoding: :LINEAR16,
+        #     sample_rate: 44100
+        # }
+        # audio = { 
+        #     uri: audio_uri 
+        # }
         request = ::Google::Cloud::Speech::V1::RecognizeRequest.new(
             config: {
                 language_code: "en-us",
                 encoding: :LINEAR16,
+                sample_rate_hertz: 16000,
+                model: 'command_and_search',
+                use_enhanced: true
             }, 
             audio: {
                 uri: audio_uri                 
