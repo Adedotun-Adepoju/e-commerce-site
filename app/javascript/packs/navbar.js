@@ -60,49 +60,55 @@ navigator.mediaDevices.getUserMedia({ audio: true })
 		});
 
 		mediaRecorder.addEventListener('stop', () => {
-			const audioBlob = new Blob(chunks);
+			const audioBlob = new Blob(chunks, { type: "audio/wav"});
 			const audioUrl = URL.createObjectURL(audioBlob);
 			const formData = new FormData();
-			convertToLinear16(audioBlob);
+			formData.append("audio_file", audioBlob);
+
+			fetch('audio/upload', {
+				method: 'POST',
+				body: formData
+			});
+			
 			chunks = [];
 		})
 	})
 	.catch(error => console.error(error));
 
-	function convertToLinear16(audioBlob){
-		const reader = new FileReader();
-		reader.onload = function(event) {
-			const audioData = event.target.result;
-			const audioBuffer = new AudioBuffer({
-				length: audioData.byteLength / 2,
-				numberOfChannels: 1,
-				sampleRate: 16000
-			});
-			const channelData = audioBuffer.getChannelData(0);
-			const dataView = new DataView(audioData);
-			for (let i = 0; i < channelData.length; i++) {
-				channelData[i] = dataView.getInt16(i * 2, true) / 32768.0;
-			}
+	// function convertToLinear16(audioBlob){
+	// 	const reader = new FileReader();
+	// 	reader.onload = function(event) {
+	// 		const audioData = event.target.result;
+	// 		const audioBuffer = new AudioBuffer({
+	// 			length: audioData.byteLength / 2,
+	// 			numberOfChannels: 1,
+	// 			sampleRate: 16000
+	// 		});
+	// 		const channelData = audioBuffer.getChannelData(0);
+	// 		const dataView = new DataView(audioData);
+	// 		for (let i = 0; i < channelData.length; i++) {
+	// 			channelData[i] = dataView.getInt16(i * 2, true) / 32768.0;
+	// 		}
 
-			const linear16Data = new Int16Array(channelData.length);
-			for (let i = 0; i < channelData.length; i++) {
-				linear16Data[i] = Math.round(channelData[i] * 32767);
-			}
+	// 		const linear16Data = new Int16Array(channelData.length);
+	// 		for (let i = 0; i < channelData.length; i++) {
+	// 			linear16Data[i] = Math.round(channelData[i] * 32767);
+	// 		}
 
-			const linear16Blob = new Blob([linear16Data], { type: 'audio/l16' });
-			const formData = new FormData();
-			formData.append('audio_file', linear16Blob);
-			fetch('audio/upload', {
-				method: 'POST',
-				body: formData
-			})
-			.then(response => {
-				if (response.ok){
-					console.log('Audio file uploaded successfully')						
-				} else {
-					console.log("Error uploading file:", response.statusText);						
-				}
-			})
-		};
-		reader.readAsArrayBuffer(audioBlob);
-	}
+	// 		const linear16Blob = new Blob([linear16Data], { type: 'audio/l16' });
+	// 		const formData = new FormData();
+	// 		formData.append('audio_file', linear16Blob);
+	// 		fetch('audio/upload', {
+	// 			method: 'POST',
+	// 			body: formData
+	// 		})
+	// 		.then(response => {
+	// 			if (response.ok){
+	// 				console.log('Audio file uploaded successfully')						
+	// 			} else {
+	// 				console.log("Error uploading file:", response.statusText);						
+	// 			}
+	// 		})
+	// 	};
+	// 	reader.readAsArrayBuffer(audioBlob);
+	// }

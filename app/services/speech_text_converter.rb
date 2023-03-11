@@ -2,6 +2,7 @@ require "google/cloud/storage"
 require "google/cloud/speech/v2"
 require "google/cloud/speech"
 
+
 class SpeechTextConverter
     def initialize(file)
         @file = file
@@ -23,13 +24,20 @@ class SpeechTextConverter
         credentials = ENV["GCS_CREDENTIALS"]
         bucket = ENV["GCS_BUCKET_NAME"]
 
+          # Convert WAV audio file to FLAC format
+        flac_file = audio_file.gsub(/\.wav$/, ".flac")
+        Sox::Cmd.new()
+            .add_input(audio_file)
+            .add_output(flac_file)
+            .run
+
         #Initialize a google cloud storage with the service account JSON file
         storage = Google::Cloud::Storage.new(
             project_id: project_id,
             credentials: credentials
         )
         # Set the name of the object in ht ebucket
-        object_name = "audio/#{SecureRandom.uuid}.linear16"
+        object_name = "audio/#{SecureRandom.uuid}.flac"
 
         # upload the file to the bucket
         bucket = storage.bucket bucket, skip_lookup: true
@@ -56,8 +64,7 @@ class SpeechTextConverter
         request = ::Google::Cloud::Speech::V1::RecognizeRequest.new(
             config: {
                 language_code: "en-us",
-                encoding: :LINEAR16,
-                sample_rate_hertz: 16000,
+                encoding: :FLAC,
                 model: 'command_and_search',
                 use_enhanced: true
             }, 

@@ -21,6 +21,7 @@ gem 'google-cloud-storage', '~> 1.44'
 gem 'google-cloud-speech', '~> 1.5.0'
 gem 'google-cloud-speech-v2'
 gem 'figaro'
+gem "sox", '~>0.0.1'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
