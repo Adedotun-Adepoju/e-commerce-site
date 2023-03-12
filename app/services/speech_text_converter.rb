@@ -1,7 +1,7 @@
 require "google/cloud/storage"
 require "google/cloud/speech/v2"
 require "google/cloud/speech"
-require 'stanford-core-nlp'
+require "google/cloud/language"
 
 class SpeechTextConverter
     def initialize(file)
@@ -15,6 +15,7 @@ class SpeechTextConverter
     def call
         object_name = upload_to_gcs(@file)
         transcript = convert_to_text(object_name)
+        puts transcript
         tokenize(transcript)
     end
 
@@ -70,7 +71,29 @@ class SpeechTextConverter
         return transcript
     end
     
-    def tokenization(transcript) 
-        
+    def tokenize(transcript) 
+        project_id = ENV["PROJECT_ID"]
+        credentials = ENV["GOOGLE_APPLICATION_CREDENTIALS"]
+        # Create a new Cloud Natural Language API client instance
+        client = Google::Cloud::Language.language_service
+
+        # client = Google::Cloud::Language::V1::LanguageService::Client.new(
+        #     service_address: "language.googleapis.com",
+        #     credentials: Google::Auth::Credentials.new(
+        #       "audio-files-writing@voice-powered-ecommerce-site.iam.gserviceaccount.com"
+        #     )
+        # )
+
+        Google::Cloud::Language.configure do |config|
+            config.project_id = project_id
+            config.credentials = credentials
+        end
+
+        document = { content: transcript, type: :PLAIN_TEXT }
+        response = client.analyze_syntax document: document
+
+        response.tokens.each do |token|
+            puts "#{token.text.content}: #{token.part_of_speech.tag}"
+        end
     end
 end
