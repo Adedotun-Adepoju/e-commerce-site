@@ -77,13 +77,6 @@ class SpeechTextConverter
         # Create a new Cloud Natural Language API client instance
         client = Google::Cloud::Language.language_service
 
-        # client = Google::Cloud::Language::V1::LanguageService::Client.new(
-        #     service_address: "language.googleapis.com",
-        #     credentials: Google::Auth::Credentials.new(
-        #       "audio-files-writing@voice-powered-ecommerce-site.iam.gserviceaccount.com"
-        #     )
-        # )
-
         Google::Cloud::Language.configure do |config|
             config.project_id = project_id
             config.credentials = credentials
