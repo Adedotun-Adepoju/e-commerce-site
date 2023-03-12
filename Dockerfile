@@ -9,13 +9,6 @@ WORKDIR /app
 # Copy the Gemfile and Gemfile.lock from your application directory into the container
 COPY Gemfile Gemfile.lock ./
 
-
-# Install the JDK
-RUN apt-get update && apt-get install -y default-jdk --fix-missing
-
-# Set the JAVA_HOME environment variable
-ENV JAVA_HOME /usr/lib/jvm/default-java
-
 # # Install dependencies
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
 
