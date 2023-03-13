@@ -7,6 +7,8 @@ services:
       - .:/app
     ports:
       - "3000:3000"
+    env_file:
+      - .env
     depends_on:
       - database
     networks:
@@ -20,6 +22,8 @@ services:
       POSTGRES_PASSWORD: 1111
     ports:
       - 5432
+    env_file:
+      - .env
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     networks:
