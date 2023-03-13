@@ -4,5 +4,4 @@ set -e
 
 echo "ENVIRONMENT: $RAILS_ENV"
 
-bundle install
-rails server
+rails server -b 0.0.0.0
