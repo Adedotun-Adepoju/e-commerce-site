@@ -40,6 +40,9 @@ yarn-debug.log*
 .yarn-integrity
 /app/assets/images/ECommerceSite_files
 
-# Environment variables, never commit this file
-/config/application.yml
+# Google credentials, never commit this file
 /config/credentials/*
+
+# Environment variables, never commit this file
+.env
+/.env
