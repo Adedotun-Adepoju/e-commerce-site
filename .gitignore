@@ -45,4 +45,3 @@ yarn-debug.log*
 
 # Environment variables, never commit this file
 .env
-/.env

@@ -17,12 +17,12 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: e-commerce
+  database: <%= ENV["DATABASE"] %>
   pool: 5
-  username: postgres
-  password: 1111
+  username: <%= ENV["DB_USER"] %>
+  password: <%= ENV["PASSWORD"] %>
   timeout: 5000
-  host: 127.0.0.1
+  host: <%= ENV["HOST"] { 127.0.0.1} %>
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
