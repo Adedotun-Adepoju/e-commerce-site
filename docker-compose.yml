@@ -1,0 +1,30 @@
+version: '3'
+services:
+  rails-web: 
+    container_name: nlp-e-commerce-site
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database
+    networks:
+      - main_network
+
+  database: 
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: commerce
+      POSTGRES_PASSWORD: 1111
+    ports:
+      - 5432
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    networks:
+      - main_network
+  
+networks: 
+  main_network:
+    driver: bridge
