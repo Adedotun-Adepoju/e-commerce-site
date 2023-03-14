@@ -3,6 +3,9 @@ services:
   rails-web: 
     container_name: nlp-e-commerce-site
     build: .
+    image: e-commerce-image
+    restart: always
+    command: bundle exec rails server -b 0.0.0.0
     volumes:
       - .:/app
     ports:
