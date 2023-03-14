@@ -1,7 +1,13 @@
 FROM ruby:3.2.1
 
+# RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+#     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+#     apt-get update && \
+#     apt-get install -y nodejs yarn=1.22.23 postgresql-client && \
+#     rm -rf /var/lib/apt/lists/*
+
 RUN apt-get update && \
-    apt-get install -y postgresql-client && \
+    apt-get install -y nodejs yarn>=1 postgresql-client && \
     rm -rf /var/lib/apt/lists/*
 
 # Set the working directory to /app
