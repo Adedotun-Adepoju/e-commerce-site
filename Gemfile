@@ -23,7 +23,6 @@ gem 'google-cloud-speech-v2'
 # gem 'figaro'
 gem 'google-cloud-language'
 gem 'dotenv-rails'
-gem 'async'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

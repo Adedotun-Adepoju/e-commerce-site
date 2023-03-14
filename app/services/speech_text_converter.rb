@@ -15,10 +15,8 @@ class SpeechTextConverter
     def call
         object_name = upload_to_gcs(@file)
         transcript = convert_to_text(object_name)
-        puts "here"
-        puts transcript
-        search_terms = tokenize(transcript)
-        return search_terms
+        words = tokenize(transcript)
+        return words
     end
 
     private 
