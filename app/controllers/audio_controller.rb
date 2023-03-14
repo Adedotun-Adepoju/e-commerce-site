@@ -7,14 +7,13 @@ class AudioController < ApplicationController
         # Get the uploaded file from the params 
         audio_file = params[:audio_file]
 
-        search_terms = SpeechTextConverter.call(audio_file)
-        puts "key #{search_terms}"
-        terms = search_terms.select{ |key, value| value == :NOUN}
-        @key = terms.keys[0]
-        puts @key
-        puts "here"
+        words = SpeechTextConverter.call(audio_file)
         
-        redirect_to search_item_path(key: 'shoe')
+        # select only words that are nouns
+        noun_terms = words.select{ |key, value| value == :NOUN}
+        @key = terms.keys[0]
+        
+        redirect_to search_item_path(key: key)
         return 
     end
 end

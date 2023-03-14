@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
             session[:customer_id] = @customer.id 
             @customer.build_cart()
             @customer.cart.save
-            redirect_to about_path
+            redirect_to root_path
         end
     end
 

@@ -1,3 +1,25 @@
 .sign-in-form{
-    padding: 50px 90px;
+    width: 100%;
+    padding: 5% 5%;
+
+    .form-container{
+        margin: 0 auto;
+        width: 40%;
+
+        .field-name{
+            font-weight: bolder;
+        }
+    }
+    h3{
+        margin-left: 30%;
+        margin-bottom: 2.5%;
+    }
+    .submit-container{
+        width: 100%;
+        margin-top: 5%;
+
+        .submit-button{
+            width: 100%;
+        }
+    }
 }

@@ -59,7 +59,7 @@ class SpeechTextConverter
             audio: {
                 uri: audio_uri                 
             })
-        # response = speech.recognize config:config, audio: audio
+
         response = speech.recognize request
 
         transcript = ""

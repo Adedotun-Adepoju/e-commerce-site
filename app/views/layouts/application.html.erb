@@ -15,7 +15,11 @@
   </head>
 
   <body>
-    <%= render partial: "shared/navbar"%>
+
+    <% unless params[:action] == 'new' %>
+      <%= render partial: "shared/navbar" %>
+    <% end %>
+
     <div>
       <%= yield %>
     </div>

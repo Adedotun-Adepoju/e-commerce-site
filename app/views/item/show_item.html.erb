@@ -11,9 +11,9 @@
 		<p class="item-price">$<%= @item.price %></p>
 		<%= link_to root_path(:cart_id => @item.id) do %>
 			<div class="cart-container">
-				<span>
+				<div>
 					<h2>Add to cart</h2>
-				</span>
+				</div>
 			</div>
 		<% end %>
 	</div>
