@@ -60,6 +60,8 @@ class ItemController < ApplicationController
     @key = params[:key].downcase()
     key = "%#{@key}%"
     @items = Item.where("LOWER(item_name)LIKE ?", key)
+
+    render "search"
   end
 
   private

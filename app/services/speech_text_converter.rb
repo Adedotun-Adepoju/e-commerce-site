@@ -15,8 +15,10 @@ class SpeechTextConverter
     def call
         object_name = upload_to_gcs(@file)
         transcript = convert_to_text(object_name)
+        puts "here"
         puts transcript
-        tokenize(transcript)
+        search_terms = tokenize(transcript)
+        return search_terms
     end
 
     private 
@@ -85,8 +87,13 @@ class SpeechTextConverter
         document = { content: transcript, type: :PLAIN_TEXT }
         response = client.analyze_syntax document: document
 
+        word_pos_mapping = {}
+
         response.tokens.each do |token|
-            puts "#{token.text.content}: #{token.part_of_speech.tag}"
+            word_pos_mapping[token.text.content] = token.part_of_speech.tag
+            # puts "#{token.text.content}: #{token.part_of_speech.tag}"
         end
+
+        return word_pos_mapping
     end
 end

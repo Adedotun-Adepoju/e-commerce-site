@@ -71,7 +71,7 @@ navigator.mediaDevices.getUserMedia({ audio: true })
 			})
 			.then(response => {
 				if (response.ok){
-					console.log('Audio file uploaded successfully')
+					window.location.href = response.url
 				} else {
 					console.log("Error uploading file:", response.statusText);
 				}
