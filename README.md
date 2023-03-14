@@ -23,8 +23,13 @@ This is a Ruby on Rails 6 app intended to work as a vice powered e-commerce site
 ```sh
 git clone https://github.com/Adedotun-Adepoju/e-commerce-site.git e-commerce
 ```
-
+```sh
+cd e-commerce
+```
 - Create an .env file to store your environment variables
+```sh
+touch .env
+```
 
 ## Set up a Google cloud account
 - Ensure you have an active google account with billing set up 
@@ -33,7 +38,7 @@ git clone https://github.com/Adedotun-Adepoju/e-commerce-site.git e-commerce
 PROJECT_ID="YOUR-PROJECT-ID"
 ```
 - Create a GCS bucket
-- Set your GCS bucket in your .env file
+- Set your GCS bucket name in the .env file
 ```sh
 GCS_BUCKET_NAME="YOUR-BUCKET-NAME-HERE"
 ```
@@ -50,9 +55,7 @@ GOOGLE_APPLICATION_CREDENTIALS="config/credentials/gcs**.json"
 
 ## Docker 
 - Ensure your docker daemon is running 
-```sh
-cd e-commerce
-```
+
 - Build the docker image
 ```sh
 docker build
