@@ -9,7 +9,7 @@
 	<div class="description-container">
 		<h3 class="item-name"><%= @item.item_name %>
 		<p class="item-price">$<%= @item.price %></p>
-		<div class="cart-container" id="add-button">
+		<div class="cart-container" id="add-button" data-id="<%= params[:item_id] %>">
 			<div>
 				<h2>Add to cart</h2>
 			</div>
