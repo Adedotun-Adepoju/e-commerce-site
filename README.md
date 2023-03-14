@@ -73,7 +73,7 @@ docker-compose build
 ```sh
 docker-compose up -d
 ```
-- get the container ID of the e-commerce image
+- Copy the container ID of the e-commerce image after running the command below
 ```sh
 docker ps
 ```
@@ -81,4 +81,9 @@ docker ps
 ```sh 
 docker exec -it <container_name> rails db:seed
 ```
-
+### Usage 
+- Open [http://localhost:3000](http://localhost:3000) on your browser
+- Click on the microphone icon beside the search bar to trigger the microphone and make a voice search
+- Click on the microphone button again to stop recording
+- Wait for some seconds to see the products available
+- You can try other functionalities out also
