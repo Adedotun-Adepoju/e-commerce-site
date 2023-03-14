@@ -56,11 +56,6 @@ GOOGLE_APPLICATION_CREDENTIALS="config/credentials/gcs**.json"
 ## Docker 
 - Ensure your docker daemon is running 
 
-- Build the docker image
-```sh
-docker build -t e-commerce-nlp .
-```
-
 - Add to .env for postgres database configuration
 ```sh
 HOST=database
@@ -69,4 +64,21 @@ PASSWORD="Enter-password"
 DATABASE="commerce"
 ```
 - Note: changing the host will also mean you have to change the name of the postgres service in the docker-compose.yml file.
+
+- Build the docker image
+```sh
+docker-compose build
+```
+- Start the docker container
+```sh
+docker-compose up -d
+```
+- get the container ID of the e-commerce image
+```sh
+docker ps
+```
+- Run the seeder to prepopulate tables
+```sh 
+docker exec -it <container_name> rails db:seed
+```
 
