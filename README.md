@@ -58,5 +58,15 @@ GOOGLE_APPLICATION_CREDENTIALS="config/credentials/gcs**.json"
 
 - Build the docker image
 ```sh
-docker build
+docker build -t e-commerce-nlp .
 ```
+
+- Add to .env for postgres database configuration
+```sh
+HOST=database
+DB_USER="Enter-db-username"
+PASSWORD="Enter-password"
+DATABASE="commerce"
+```
+- Note: changing the host will also mean you have to change the name of the postgres service in the docker-compose.yml file.
+
