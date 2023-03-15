@@ -51,9 +51,20 @@ class ItemController < ApplicationController
   end 
 
   def add_item_to_cart
-    cart_id = params[:cart_id]
-    @cart = Cart.find(cart_id)
-    @cart.items_by_carts.create(cart_item)
+    item_id = params[:item_id]
+    item = Item.find(item_id)
+    customer_id = Current.customer.id
+    cart = Current.customer.cart
+    quantity = 1
+    cart.items_by_carts.create(
+      item_id: item_id,
+      quantity: quantity,
+    )
+
+    cart.sub_total += item.price
+
+    puts cart.sub_total
+
   end
 
   def search 
