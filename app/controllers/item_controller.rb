@@ -43,10 +43,13 @@ class ItemController < ApplicationController
   def fetch_by_carts
     cart_id = params[:cart_id]
     @cart = Cart.find(cart_id)
-    @items = @cart.items_by_cart.all 
+    cart_items = @cart.items_by_carts 
+    items_id = cart_items.map { |product| product.item_id }
+    puts items_id
 
-    for item in @items 
-      puts item.item_name
+
+    for item in cart_items 
+      
     end
   end 
 
@@ -61,9 +64,11 @@ class ItemController < ApplicationController
       quantity: quantity,
     )
 
-    cart.sub_total += item.price
+    total = cart.sub_total.to_f + item.price.to_f
 
-    puts cart.sub_total
+    cart.update(
+      sub_total: total
+    )
 
   end
 
