@@ -13,16 +13,39 @@
                     <%= image_tag item.image_src, class:"item-image" %>
                 </div>
                 <div class="content">
-                    <p class="price"><%= item.price %></p>
+                    <p class="price">$<%= item.price %></p>
                     <p class="name"><%= item.item_name %></p>
                 </div>
             </div>
         <% end %>
+        <div class="sub-total">
+            <p>Sub-total </p>
+            <span>$<%= @cart.sub_total %></span>
+        </div>
     </div>
     <div class="column-2">
-        <h2>Total</h2>
+        <div class="header">
+            <h2>Total</h2>
+        </div>
         <hr>
-        <h3>Sub-total <span>$50.50</span></h3>
+        <div class="checkout-description">
+            <div class="description">
+                <p>Sub-total</p>
+                <span>$<%= @cart.sub_total %></span>
+            </div>
+            <div class="description">
+                <p>Delivery</p>
+            </div>
+        </div>
         <hr>
+        <div class="checkout">
+            <p>Checkout</p>
+        </div>
+        <div class="payments">
+            <p>We Accept:</p>
+            <div class="payment-images">
+
+            </div>
+        </div>
     </div>
 </div>
