@@ -1,0 +1,28 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'show_carts' %>
+<% end %>
+
+<div class="main-cart-container">
+    <div class="column-1">
+        <div class="header">
+            <h2> My Cart</h2>
+        </div>
+        <% @items.each do |item| %>
+            <div class="cart-items">
+                <div class="image-wrapper">
+                    <%= image_tag item.image_src, class:"item-image" %>
+                </div>
+                <div class="content">
+                    <p class="price"><%= item.price %></p>
+                    <p class="name"><%= item.item_name %></p>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <div class="column-2">
+        <h2>Total</h2>
+        <hr>
+        <h3>Sub-total <span>$50.50</span></h3>
+        <hr>
+    </div>
+</div>

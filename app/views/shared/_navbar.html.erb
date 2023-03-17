@@ -34,7 +34,7 @@
             </li>
             <li class="nav-item cart-container">
               <%= image_tag "cart.png", class: "cart-image" %>
-              <%= link_to "Cart", root_path, class: "nav-link right-nav-item" %>
+              <%= link_to "Cart", fetch_cart_path, class: "nav-link right-nav-item" %>
             </li>
             <li class="nav-item">
               <%= link_to "Logout", sign_out_path, method: :delete, class: "right-nav-item" %>

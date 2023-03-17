@@ -41,16 +41,16 @@ class ItemController < ApplicationController
   end
 
   def fetch_by_carts
-    cart_id = params[:cart_id]
-    @cart = Cart.find(cart_id)
+    # cart_id = params[:cart_id]
+    # @cart = Cart.find(cart_id)
+
+    @cart = Current.customer.cart
     cart_items = @cart.items_by_carts 
     items_id = cart_items.map { |product| product.item_id }
-    puts items_id
+    
+    distinct_items_id = Set.new(items_id).to_a
+    @items = Item.where(id: distinct_items_id)
 
-
-    for item in cart_items 
-      
-    end
   end 
 
   def add_item_to_cart
