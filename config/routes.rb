@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # Root
   root to: "main#index"
 
-  # about 
+  # about  
   get "/about", to: "about#index"
 
   # sign-in 
