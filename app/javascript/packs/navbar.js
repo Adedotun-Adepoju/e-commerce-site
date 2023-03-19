@@ -33,6 +33,13 @@ navigator.mediaDevices.getUserMedia({ audio: true })
         const nav = wrapper.closest("nav")
     
         nav.removeChild(wrapper)
+
+		// let sound = new Audio('../../assets/audio/blip.mp3')
+		// console.log("here")
+
+		var audioStart = document.getElementById("blip-in");
+		audioStart.play();
+		
         let speechNotification = document.createElement('div');
         speechNotification.classList.add('speech-active')
     
@@ -60,6 +67,8 @@ navigator.mediaDevices.getUserMedia({ audio: true })
 		});
 
 		mediaRecorder.addEventListener('stop', () => {
+			var audioStop = document.getElementById("blip-out");
+			audioStop.play();
 			const audioBlob = new Blob(chunks, { type: 'audio/mp3' });
 			const audioUrl = URL.createObjectURL(audioBlob);
 			const formData = new FormData();
@@ -71,6 +80,7 @@ navigator.mediaDevices.getUserMedia({ audio: true })
 			})
 			.then(response => {
 				if (response.ok){
+					console.log(response)
 					window.location.href = response.url
 				} else {
 					console.log("Error uploading file:", response.statusText);

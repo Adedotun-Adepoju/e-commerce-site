@@ -49,4 +49,12 @@
     </div>
   </div>
 </nav>
+
+<audio id="blip-in">
+  <source src="<%= asset_path('blip_in.mp3') %>" type="audio/mpeg">
+</audio>
+<audio id="blip-out">
+  <source src="<%= asset_path('blip_out.mp3') %>" type="audio/mpeg">
+</audio>
+
 <%= javascript_pack_tag 'navbar' %>
