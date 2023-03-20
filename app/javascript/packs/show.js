@@ -2,7 +2,6 @@ const actionButton = document.getElementById("add-button")
 
 
 actionButton.addEventListener('click', (e) => {
-   console.log(actionButton)
 
    const item_id = actionButton.getAttribute("data-id")
    
