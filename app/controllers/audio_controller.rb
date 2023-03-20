@@ -12,6 +12,11 @@ class AudioController < ApplicationController
         # select only words that are nouns
         noun_terms = words.select{ |key, value| value == :NOUN}
         key = noun_terms.keys[0]
+
+        if key == nil 
+            puts "yeah"
+           return redirect_to search_item_path(key: "")  
+        end
         
         redirect_to search_item_path(key: key)
         return 

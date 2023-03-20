@@ -37,6 +37,7 @@ class SpeechTextConverter
         # upload the file to the bucket
         bucket = storage.bucket bucket, skip_lookup: true
         file = bucket.create_file(audio_file.tempfile, object_name)
+      
         return object_name
     end
 
@@ -46,6 +47,7 @@ class SpeechTextConverter
         bucket = ENV["GCS_BUCKET_NAME"]       
 
         speech = Google::Cloud::Speech.speech
+
         audio_uri = "gs://#{bucket}/#{object_name}"
 
         request = ::Google::Cloud::Speech::V1::RecognizeRequest.new(
@@ -64,7 +66,6 @@ class SpeechTextConverter
 
         transcript = ""
         response.results.each do |result|
-            puts result
             transcript += result.alternatives[0].transcript
         end 
 
@@ -75,14 +76,16 @@ class SpeechTextConverter
         project_id = ENV["PROJECT_ID"]
         credentials = ENV["GOOGLE_APPLICATION_CREDENTIALS"]
         # Create a new Cloud Natural Language API client instance
+
         client = Google::Cloud::Language.language_service
 
         Google::Cloud::Language.configure do |config|
             config.project_id = project_id
             config.credentials = credentials
-        end
+        end 
 
         document = { content: transcript, type: :PLAIN_TEXT }
+
         response = client.analyze_syntax document: document
 
         word_pos_mapping = {}
@@ -91,7 +94,7 @@ class SpeechTextConverter
             word_pos_mapping[token.text.content] = token.part_of_speech.tag
             # puts "#{token.text.content}: #{token.part_of_speech.tag}"
         end
-
+     
         return word_pos_mapping
     end
 end

@@ -39,6 +39,7 @@
 			text-transform: capitalize;
 			font-size: 18px;
 			font-weight: bold;
+			color: black;
 		}
 		.description{
 			text-transform: capitalize;
@@ -47,7 +48,12 @@
 		}
 		.price{
 			font-size: 22px;
+			color: black;
 		}
+	}
+
+	a{
+		text-decoration: none;
 	}
 
 }

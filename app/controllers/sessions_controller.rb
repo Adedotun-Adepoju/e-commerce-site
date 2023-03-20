@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
 
     def destroy 
         session[:customer_id] = nil
-        redirect_to about_path, notice: "Logged out"
+        redirect_to sign_in_path, notice: "Logged out"
     end
 
     private 
