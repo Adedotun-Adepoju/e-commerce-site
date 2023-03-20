@@ -11,20 +11,17 @@ Rails.application.routes.draw do
   delete "/sign_out", to: "sessions#destroy"
   
   # category routes
-  post '/category/add', to: 'category#create'                   # Create category
-  get  '/category/:category_id', to: "category#fetch_category"   # fetch one category
-  get  '/categories', to: "category#fetch_all"                   # fetch all categories
+  post '/category/add', to: 'category#create'                                             
+  get  '/category/:category_id', to: "category#fetch_category"                             
+  get  '/categories', to: "category#fetch_all"                                              
 
   # Item routes
-  get '/items', to: 'item#index'                                  # fetch all items
   get '/item/:item_id', to: "item#show_item", as: "show_item"     
-  post "/item", to: "item#create"                                 # Create new item
-  get '/item/category/:category_id', to: "item#show_category_items", as: 'category_items'     # fetch items by category
+  post "/item", to: "item#create"                                                             
+  get '/item/category/:category_id', to: "item#show_category_items", as: 'category_items'     
   get '/search/item', to: "item#search"
-  get '/view_cart', to: "item#fetch_by_carts", as: "fetch_cart"               # fetch items by cart
-  post 'item/cart', to: "item#add_item_to_cart"                               # Add item to a cart
-
-  get 'items/test', to: "main#show"
+  get '/view_cart', to: "item#fetch_by_carts", as: "fetch_cart"                                
+  post 'item/cart', to: "item#add_item_to_cart"                                                
 
   post 'audio/upload', to: "audio#upload_audio"
 end

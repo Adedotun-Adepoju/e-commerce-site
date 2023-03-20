@@ -3,6 +3,7 @@ require "google/cloud/storage"
 class AudioController < ApplicationController
     skip_before_action :verify_authenticity_token
 
+    # Action to upload audio to GCS and translate. Calls the SpeechTextConverter Service
     def upload_audio 
         # Get the uploaded file from the params 
         audio_file = params[:audio_file]
@@ -13,8 +14,8 @@ class AudioController < ApplicationController
         noun_terms = words.select{ |key, value| value == :NOUN}
         key = noun_terms.keys[0]
 
+        # Show all products if there is no text identified
         if key == nil 
-            puts "yeah"
            return redirect_to search_item_path(key: "")  
         end
         

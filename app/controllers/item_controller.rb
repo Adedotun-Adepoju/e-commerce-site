@@ -1,13 +1,7 @@
 class ItemController < ApplicationController
   skip_before_action :verify_authenticity_token
-  def fetch_all
-    @items = Item.all
-  end
 
-  def fetch_item
-    @item = Item.find(params[:item_id])
-  end
-
+  # Action to create a new item
   def create
     for item in item_params
       category_slug = item[:category]
@@ -17,20 +11,14 @@ class ItemController < ApplicationController
     end
   end
 
-  def fetch_all 
-    @items = Item.all
-  end
 
+  # Action to show items in a category
   def show_category_items
     category_id = params[:category_id]
     @category = Category.find(category_id)
     @items = @category.items.all
 
     render "items_category"
-
-    for item in @items 
-      puts item.item_name
-    end
   end
 
   def show_item 
