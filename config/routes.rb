@@ -3,9 +3,6 @@ Rails.application.routes.draw do
   # Root
   root to: "main#index"
 
-  # about  
-  get "/about", to: "about#index"
-
   # sign-in 
   get "/sign_in", to: "sessions#new"
   post "/sign_in", to: "sessions#create"
