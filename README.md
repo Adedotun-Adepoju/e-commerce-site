@@ -1,6 +1,6 @@
 # README
 
-This is a Ruby on Rails 6 app intended to work as a vice powered e-commerce site. It is built on top of the google natural language API. It allows users to search for products with voice. Follow the following steps to set up locally and if you want to try a live demo, you can try it out here.
+This is a Ruby on Rails 6 app intended to work as a vice powered e-commerce site. It is built on top of the google natural language API. It allows users to search for products with voice. Follow the following steps to set up locally.
 
 ### Tools 
 - Framework: Ruby on  Rails 6
@@ -59,11 +59,11 @@ GOOGLE_APPLICATION_CREDENTIALS="config/credentials/gcs**.json"
 - Add to .env for postgres database configuration
 ```sh
 HOST=database
-DB_USER="Enter-db-username"
-PASSWORD="Enter-password"
-DATABASE="commerce"
+POSTGRES_USER="Enter-db-username"
+POSTGRES_PASSWORD="Enter-password"
+POSTGRES_DB="commerce"
 ```
-- Note: changing the host will also mean you have to change the name of the postgres service in the docker-compose.yml file.
+- Note: changing the host name will also mean you have to change the name of the postgres service in the docker-compose.yml file.
 
 - Build the docker image
 ```sh
@@ -83,7 +83,7 @@ docker exec -it <container_name> rails db:seed
 ```
 ### Usage 
 - Open [http://localhost:3000](http://localhost:3000) on your browser
-- Click on the microphone icon beside the search bar to trigger the microphone and make a voice search
+- Click on the microphone icon beside the search bar to trigger the microphone and make a voice search for a product. For a start, you can search for products like shoe, phone. These products are in the seeded database
 - Click on the microphone button again to stop recording
 - Wait for some seconds to see the products available
-- You can try other functionalities out also
+- You can try other functionalities out also like adding items to the cart, searching products and logging in and out
