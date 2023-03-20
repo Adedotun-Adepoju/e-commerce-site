@@ -82,6 +82,7 @@ docker ps
 docker exec -it <container_name> rails db:seed
 ```
 ### Usage 
+- Compare your .env file to the env_example file in the repo to make ure you are not missing any environment variables
 - Open [http://localhost:3000](http://localhost:3000) on your browser
 - Click on the microphone icon beside the search bar to trigger the microphone and make a voice search for a product. For a start, you can search for products like shoe, phone. These products are in the seeded database
 - Click on the microphone button again to stop recording
