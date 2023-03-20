@@ -17,6 +17,6 @@ actionButton.addEventListener('click', (e) => {
    })
    .then(response => console.log(response))
    .catch(error => {
-      console.log(error)
+   
    })
 })
