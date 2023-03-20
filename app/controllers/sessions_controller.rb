@@ -1,7 +1,10 @@
 class SessionsController < ApplicationController
+    # Sign in page
     def new 
+
     end
 
+    # Create new customer or fetch existing customer
     def create
         existing_customer = Customer.where(
             first_name: params[:first_name],
@@ -21,6 +24,7 @@ class SessionsController < ApplicationController
         end
     end
 
+    # sign out
     def destroy 
         session[:customer_id] = nil
         redirect_to sign_in_path, notice: "Logged out"
