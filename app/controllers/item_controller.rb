@@ -21,6 +21,7 @@ class ItemController < ApplicationController
     render "items_category"
   end
 
+  # Action to show one item
   def show_item 
     item_id = params[:item_id]
     @item = Item.find(item_id)
@@ -28,10 +29,8 @@ class ItemController < ApplicationController
     render "show_item"
   end
 
+  # Action to fetch items in a cart
   def fetch_by_carts
-    # cart_id = params[:cart_id]
-    # @cart = Cart.find(cart_id)
-
     @cart = Current.customer.cart
     cart_items = @cart.items_by_carts 
     items_id = cart_items.map { |product| product.item_id }
@@ -41,6 +40,7 @@ class ItemController < ApplicationController
 
   end 
 
+  # Action to add item to cart
   def add_item_to_cart
     item_id = params[:item_id]
     item = Item.find(item_id)
@@ -60,6 +60,7 @@ class ItemController < ApplicationController
 
   end
 
+  # Action to search for an item
   def search 
     @key = params[:key].downcase()
     key = "%#{@key}%"
